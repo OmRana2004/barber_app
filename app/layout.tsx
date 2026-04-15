@@ -26,7 +26,7 @@ export default function RootLayout({
       lang="en"
       className={`${serif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0d0d0d] text-white [font-family:var(--font-serif)]">
+      <body className="min-h-full flex flex-col bg-[#0d0d0d] text-white font-serif">
         {children}
       </body>
     </html>
