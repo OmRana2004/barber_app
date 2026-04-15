@@ -10,6 +10,10 @@ const serif = Playfair_Display({
 export const metadata: Metadata = {
   title: "The Sharp Edge",
   description: "Premium Barber Shop",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
 };
 
 export default function RootLayout({
@@ -22,7 +26,7 @@ export default function RootLayout({
       lang="en"
       className={`${serif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0d0d0d] text-white font-(--font-serif)">
+      <body className="min-h-full flex flex-col bg-[#0d0d0d] text-white [font-family:var(--font-serif)]">
         {children}
       </body>
     </html>
