@@ -1,51 +1,58 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function Offers() {
   return (
-    <section id="offers" className="bg-[#141414] py-20 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto text-center">
+    <section
+      id="offers"
+      className="bg-[#141414] py-12 sm:py-16 flex justify-center"
+    >
+      <div className="w-full max-w-105 sm:max-w-5xl px-3 sm:px-6 text-center">
 
-        {/* Header */}
-        <p className="text-[10px] sm:text-xs tracking-[4px] text-[#c9a84c] mb-2 uppercase">
+        <p className="text-[10px] tracking-[4px] text-[#c9a84c] mb-2 uppercase">
           This Month's Deals
         </p>
 
-        <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-[2px] uppercase">
+        <h2 className="text-xl sm:text-3xl md:text-4xl tracking-[2px] uppercase">
           Special Offers
         </h2>
 
-        <div className="w-14 h-0.5 bg-[#c9a84c] mx-auto my-6"></div>
+        <div className="w-12 h-0.5 bg-[#c9a84c] mx-auto my-5"></div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+        <div className="grid grid-cols-2 gap-4 mt-8">
 
           <OfferCard
             badge="HOT DEAL"
-            badgeColor="bg-red-800"
+            badgeColor="bg-red-700"
             title="Weekend Special"
-            desc="Haircut + beard trim + hot towel shave combo — look sharp for the week."
+            desc="Haircut + beard trim + hot towel shave combo."
             price="₹399"
             old="₹599"
-            footer="VALID: SAT & SUN ONLY"
+            footer="SAT & SUN ONLY"
           />
 
           <OfferCard
             badge="NEW"
             badgeColor="bg-[#c9a84c]"
-            title="First Visit Offer"
-            desc="New customers get 30% off their first service. Show this at the counter."
+            title="First Visit"
+            desc="30% off your first service."
             price="30% OFF"
             sub="first visit"
-            footer="VALID FOR NEW CUSTOMERS ONLY"
+            footer="NEW CUSTOMERS"
           />
 
-          <OfferCard
-            badge="MONTHLY"
-            badgeColor="bg-red-800"
-            title="Student Discount"
-            desc="Any haircut at a special price. Valid student ID required at the shop."
-            price="₹199"
-            old="₹299"
-            footer="MON–FRI, ANY TIME"
-          />
+          <div className="col-span-2">
+            <OfferCard
+              badge="MONTHLY"
+              badgeColor="bg-red-700"
+              title="Student Discount"
+              desc="Special haircut pricing with ID."
+              price="₹199"
+              old="₹299"
+              footer="MON–FRI"
+            />
+          </div>
 
         </div>
 
@@ -53,6 +60,7 @@ export default function Offers() {
     </section>
   );
 }
+    
 
 function OfferCard({
   badge,
@@ -65,22 +73,37 @@ function OfferCard({
   footer,
 }: any) {
   return (
-    <div className="relative bg-[#1a1a1a] border border-[#2a2a2a] p-6 sm:p-8 text-left hover:border-[#c9a84c] transition">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      whileHover={{ y: -6, scale: 1.02 }}
+      className="
+        relative 
+        bg-[#1a1a1a] 
+        border border-[#2a2a2a] 
+        p-5 sm:p-7 
+        text-left 
+        transition-all duration-300
+        hover:border-[#c9a84c]
+        hover:shadow-[0_0_25px_rgba(201,168,76,0.15)]
+      "
+    >
 
       {/* Badge */}
       <div
-        className={`absolute top-0 right-0 text-[10px] tracking-[2px] uppercase px-3 py-1 text-black ${badgeColor}`}
+        className={`absolute top-0 right-0 text-[9px] tracking-[2px] uppercase px-3 py-1 text-black ${badgeColor}`}
       >
         {badge}
       </div>
 
       {/* Title */}
-      <h3 className="text-lg sm:text-xl tracking-[2px] uppercase mb-3">
+      <h3 className="text-lg sm:text-xl tracking-[2px] uppercase mb-2">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-[#888] italic text-sm leading-relaxed mb-6">
+      <p className="text-[#888] italic text-sm leading-relaxed mb-5">
         {desc}
       </p>
 
@@ -106,6 +129,6 @@ function OfferCard({
         {footer}
       </p>
 
-    </div>
+    </motion.div>
   );
 }
