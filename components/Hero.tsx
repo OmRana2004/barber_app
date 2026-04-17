@@ -1,95 +1,60 @@
-"use client";
+'use client'
+import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
 
-import { useHeroAnimation } from "@/hooks/useHeroAnimation";
+const HeroCanvas = dynamic(() => import('./HeroCanvas'), { ssr: false })
 
-export default function Hero() {
-  useHeroAnimation();
-
+export default function HeroSection() {
   return (
-  <section
-  id="hero"
-  className="
-    relative
-    min-h-auto sm:min-h-[calc(100vh-64px)]
-    flex
-    items-start sm:items-center
-    justify-center
-    text-center
-    px-3 sm:px-6
-    pt-16 sm:pt-16
-    pb-4 sm:pb-16
-    overflow-hidden
-    bg-[radial-gradient(ellipse_at_center,#1c1508_0%,#0d0d0d_70%)]
-  "
->
-      {/* Animation Layer */}
-      <div
-        id="hero-tools"
-        className="absolute inset-0 pointer-events-none z-0"
-      />
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden"
+      style={{ background: 'radial-gradient(ellipse at center,#1c1508 0%,#0d0d0d 70%)' }}>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center w-full max-w-lg sm:max-w-2xl md:max-w-4xl">
+      <HeroCanvas />
 
-        {/* Tag */}
-        <div className="text-[9px] sm:text-xs tracking-[3px] sm:tracking-[4px] uppercase text-[#c9a84c] mb-4 sm:mb-6 border border-[#c9a84c] px-3 sm:px-5 py-1 sm:py-2">
-          EST. 2018 — PREMIUM GROOMING
-        </div>
+      {/* Content overlay */}
+      <div className="relative z-10 flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+          className="text-xs tracking-[4px] uppercase text-[#c9a84c] border border-[#c9a84c] px-4 py-1.5 mb-6 inline-block">
+          Est. 2018 — Premium Grooming
+        </motion.div>
 
-        {/* Title */}
-        <h1 className="text-[26px] sm:text-[42px] md:text-[64px] lg:text-[80px] tracking-[2px] sm:tracking-[4px] uppercase leading-tight mb-3 sm:mb-4">
-          THE <span className="text-[#c9a84c]">SHARP</span>
-          <br />
-          EDGE
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
+          className="text-6xl md:text-8xl font-bold uppercase tracking-widest leading-none mb-4">
+          The <span className="text-[#c9a84c]">Sharp</span><br />Edge
+        </motion.h1>
 
-        {/* Subtitle */}
-        <p className="text-[#888] italic text-[11px] sm:text-sm md:text-lg mb-6 sm:mb-10 max-w-xs sm:max-w-md">
+        <motion.p
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
+          className="text-[#888] text-lg italic tracking-wide mb-8">
           Where every cut tells a story
-        </p>
+        </motion.p>
 
-        {/* Buttons */}
-        <div className="flex flex-row gap-2 sm:gap-4 mb-10 sm:mb-16 w-full justify-center">
-
-          <button className="flex-1 sm:flex-none bg-[#c9a84c] text-black px-4 sm:px-8 py-2.5 sm:py-4 text-[9px] sm:text-sm tracking-[2px] sm:tracking-[3px] uppercase font-semibold hover:bg-[#e8c76a] transition">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}
+          className="flex flex-wrap gap-4 justify-center">
+          <a href="#book-now"
+            className="bg-[#c9a84c] text-black px-8 py-4 text-xs tracking-[3px] uppercase font-bold hover:bg-[#e8c76a] transition-colors">
             Book Appointment
-          </button>
-
-          <button className="flex-1 sm:flex-none border border-[#c9a84c] text-[#c9a84c] px-4 sm:px-8 py-2.5 sm:py-4 text-[9px] sm:text-sm tracking-[2px] sm:tracking-[3px] uppercase hover:bg-[#c9a84c] hover:text-black transition">
+          </a>
+          <a href="#services"
+            className="border border-[#c9a84c] text-[#c9a84c] px-8 py-4 text-xs tracking-[3px] uppercase hover:bg-[#c9a84c] hover:text-black transition-colors">
             Our Services
-          </button>
+          </a>
+        </motion.div>
 
-        </div>
-
-        {/* Stats */}
-        <div className="flex items-center justify-center gap-4 sm:gap-10 flex-nowrap">
-
-          <Stat number="5000+" label="Clients" />
-          <Divider />
-          <Stat number="8+" label="Years" />
-          <Divider />
-          <Stat number="4.9★" label="Rating" />
-
-        </div>
-
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }}
+          className="flex gap-8 md:gap-16 mt-14 flex-wrap justify-center">
+          {[['5000+', 'Clients Served'], ['8+', 'Years Experience'], ['4.9★', 'Avg Rating']].map(([n, l]) => (
+            <div key={l} className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-[#c9a84c]">{n}</div>
+              <div className="text-[10px] tracking-[2px] uppercase text-[#888] mt-1">{l}</div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-function Stat({ number, label }: any) {
-  return (
-    <div className="text-center min-w-17.5">
-      <div className="text-lg sm:text-2xl md:text-3xl text-[#c9a84c] font-semibold">
-        {number}
-      </div>
-      <div className="text-[9px] sm:text-xs tracking-[1px] sm:tracking-[2px] uppercase text-[#888] mt-1">
-        {label}
-      </div>
-    </div>
-  );
-}
-
-function Divider() {
-  return <div className="w-px h-6 sm:h-10 bg-[#2a2a2a]" />;
+  )
 }
