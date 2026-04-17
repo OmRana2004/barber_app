@@ -66,20 +66,6 @@ export const OFFERS = [
     price: '₹199', original: '₹299',
     expires: 'Mon–Fri, any time',
   },
-  {
-    badge: 'Monthly', badgeColor: '#c0392b',
-    title: 'Student Discount',
-    desc: 'Any haircut at a special price with valid student ID.',
-    price: '₹199', original: '₹299',
-    expires: 'Mon–Fri, any time',
-  },
-  {
-    badge: 'Monthly', badgeColor: '#c0392b',
-    title: 'Student Discount',
-    desc: 'Any haircut at a special price with valid student ID.',
-    price: '₹199', original: '₹299',
-    expires: 'Mon–Fri, any time',
-  },
 ]
 
 export const TIME_SLOTS = [
