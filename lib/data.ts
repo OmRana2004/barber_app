@@ -1,11 +1,41 @@
 export const SERVICES = [
-  { icon: '💈', name: 'Classic Haircut', desc: 'Precision cut tailored to your face shape.', price: '₹250' },
-  { icon: '🪒', name: 'Beard Trim', desc: 'Shape, edge and style your beard to perfection.', price: '₹150' },
-  { icon: '✦', name: 'Hot Towel Shave', desc: 'Traditional straight-razor shave with hot towel.', price: '₹299' },
-  { icon: '🎨', name: 'Hair Color', desc: 'Professional coloring with premium products.', price: '₹499' },
-  { icon: '💆', name: 'Head Massage', desc: 'Relaxing oil massage for scalp health.', price: '₹199' },
-  { icon: '✂', name: 'Kids Cut', desc: 'Gentle, patient cuts for boys under 12.', price: '₹150' },
-]
+  {
+    name: 'Classic Haircut',
+    desc: 'Precision haircut tailored to your face shape.',
+    price: '₹250',
+    image: '/services/haircut.jpg',
+  },
+  {
+    name: 'Beard Trim',
+    desc: 'Sharp beard shaping and detailing.',
+    price: '₹150',
+    image: '/services/beard.jpg',
+  },
+  {
+    name: 'Hot Towel Shave',
+    desc: 'Luxury straight razor shave experience.',
+    price: '₹299',
+    image: '/services/shave.jpg',
+  },
+  {
+    name: 'Hair Color',
+    desc: 'Premium hair coloring services.',
+    price: '₹499',
+    image: '/services/color.jpg',
+  },
+  {
+    name: 'Head Massage',
+    desc: 'Relaxing oil massage.',
+    price: '₹199',
+    image: '/services/massage.jpg',
+  },
+  {
+    name: 'Kids Cut',
+    desc: 'Gentle haircut for kids.',
+    price: '₹150',
+    image: '/services/kids.jpg',
+  },
+];
 
 export const OFFERS = [
   {

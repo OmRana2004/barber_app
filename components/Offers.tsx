@@ -1,39 +1,116 @@
 'use client'
+
 import { motion } from 'framer-motion'
 import { OFFERS } from '@/lib/data'
 
 export default function OffersSection() {
   return (
-    <section id="offers" className="py-20 px-6 bg-[#141414]">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-[10px] tracking-[4px] uppercase text-[#c9a84c] mb-2">This Month's Deals</p>
-          <h2 className="text-3xl md:text-4xl uppercase tracking-widest">Special Offers</h2>
-          <div className="w-14 h-0.5 bg-[#c9a84c] mx-auto mt-4" />
+    <section
+      id="offers"
+      className="py-16 sm:py-20 px-4 bg-[#141414] flex justify-center"
+    >
+      <div className="w-full max-w-[420px] sm:max-w-6xl">
+
+        {/* Header */}
+        <div className="text-center mb-10 sm:mb-12">
+          <p className="text-[10px] tracking-[4px] uppercase text-[#c9a84c] mb-2">
+            This Month's Deals
+          </p>
+
+          <h2 className="text-xl sm:text-4xl uppercase tracking-[3px]">
+            Special Offers
+          </h2>
+
+          <div className="w-12 h-[2px] bg-gradient-to-r from-transparent via-[#c9a84c] to-transparent mx-auto mt-4" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        {/* Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6">
+
           {OFFERS.map((o, i) => (
-            <motion.div key={o.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-              whileHover={{ borderColor: '#c9a84c', scale: 1.02 }}
-              className="relative bg-[#1a1a1a] border border-[#2a2a2a] p-8 overflow-hidden transition-colors">
-              <div className="absolute top-0 right-0 px-3 py-1.5 text-[10px] tracking-[2px] uppercase font-bold"
-                style={{ background: o.badgeColor, color: o.badgeColor === '#c9a84c' ? '#000' : '#fff' }}>
-                {o.badge}
-              </div>
-              <h3 className="text-xl uppercase tracking-widest mb-3">{o.title}</h3>
-              <p className="text-[#888] text-sm italic leading-relaxed mb-5">{o.desc}</p>
-              <div className="text-3xl font-bold text-[#c9a84c]">
-                {o.price} <span className="text-base text-[#888] line-through font-normal ml-2">{o.original}</span>
-              </div>
-              <div className="text-[10px] tracking-[1px] uppercase text-[#666] mt-2">{o.expires}</div>
-            </motion.div>
+            <OfferCard key={o.title + i} o={o} i={i} />
           ))}
+
         </div>
+
       </div>
     </section>
+  )
+}
+
+function OfferCard({ o, i }: any) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: i * 0.08 }}
+      viewport={{ once: true }}
+      className="group relative"
+    >
+
+      {/* 🌟 Glow */}
+      <div className="
+        absolute -inset-[1px]
+        bg-gradient-to-br from-[#c9a84c]/30 via-transparent to-[#c9a84c]/20
+        opacity-0 group-hover:opacity-100
+        blur-xl
+        transition duration-500
+      " />
+
+      {/* 💎 Card */}
+      <div className="
+        relative
+        h-full
+        rounded-xl sm:rounded-2xl
+        border border-white/10
+        bg-white/[0.04]
+        backdrop-blur-xl
+        overflow-hidden
+        transition-all duration-500
+        shadow-[0_10px_30px_rgba(0,0,0,0.6)]
+        group-hover:border-[#c9a84c]/40
+        p-4 sm:p-6
+      ">
+
+        {/* Badge */}
+        <div
+          className="absolute top-0 right-0 px-2 sm:px-3 py-1 text-[8px] sm:text-[10px] tracking-[2px] uppercase font-bold rounded-bl-md"
+          style={{
+            background: o.badgeColor,
+            color: o.badgeColor === '#c9a84c' ? '#000' : '#fff',
+          }}
+        >
+          {o.badge}
+        </div>
+
+        {/* Title */}
+        <h3 className="text-sm sm:text-lg uppercase tracking-[2px] mb-2 sm:mb-3">
+          {o.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-[#888] text-[11px] sm:text-sm italic leading-relaxed mb-3 sm:mb-5 line-clamp-3">
+          {o.desc}
+        </p>
+
+        {/* Price */}
+        <div className="text-[#c9a84c] text-lg sm:text-3xl font-bold">
+          {o.price}
+
+          {o.original && (
+            <span className="text-[10px] sm:text-base text-[#888] line-through font-normal ml-2">
+              {o.original}
+            </span>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="text-[8px] sm:text-[10px] tracking-[2px] uppercase text-[#666] mt-2">
+          {o.expires}
+        </div>
+
+      </div>
+
+    </motion.div>
   )
 }
