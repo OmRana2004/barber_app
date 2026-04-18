@@ -2,92 +2,86 @@
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#070707] border-t border-[#2a2a2a] px-4 py-12 sm:py-16">
+    <footer className="bg-[#070707] border-t border-[#2a2a2a] px-3 sm:px-4 py-10 sm:py-16">
 
       <div className="max-w-6xl mx-auto">
 
-        {/* 🔥 TOP BRAND */}
-        <div className="text-center mb-10 sm:mb-14">
-          <h2 className="text-lg sm:text-2xl tracking-[3px] sm:tracking-[4px] text-[#c9a84c] uppercase font-bold">
+        {/* BRAND */}
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-sm sm:text-2xl tracking-[2px] sm:tracking-[4px] text-[#c9a84c] uppercase font-bold">
             ✦ The Sharp Edge
           </h2>
 
-          <p className="text-[#888] text-xs sm:text-sm italic mt-2">
+          <p className="text-[#888] text-[10px] sm:text-sm italic mt-2">
             Where every cut tells a story
           </p>
         </div>
 
-        {/* 💎 GRID */}
+        {/* 🔥 SIDE-BY-SIDE ALWAYS */}
         <div className="
           grid 
-          grid-cols-1 sm:grid-cols-3 
-          gap-8 sm:gap-12 
-          text-center sm:text-left
+          grid-cols-3 
+          gap-3 sm:gap-12 
+          text-center
         ">
 
-          {/* LOCATION */}
           <FooterCol
             title="Location"
             lines={[
-              '123 Main Bazaar Road',
-              'Dehradun, Uttarakhand',
+              'Main Bazaar Road',
+              'Dehradun',
               '248001'
             ]}
           />
 
-          {/* CONTACT */}
           <FooterCol
             title="Contact"
             lines={[
-              '+91 98765 43210',
-              'thesharpedge@email.com',
-              '@thesharpedge'
+              '+91 98765',
+              'email.com',
+              '@sharpedge'
             ]}
           />
 
-          {/* HOURS */}
           <FooterCol
             title="Hours"
             lines={[
-              'Mon–Fri: 9am – 8pm',
-              'Saturday: 8am – 9pm',
-              'Sunday: 10am – 6pm'
+              'Mon–Fri: 9–8',
+              'Sat: 8–9',
+              'Sun: 10–6'
             ]}
           />
 
         </div>
 
-        {/* ✨ DIVIDER */}
-        <div className="mt-10 sm:mt-14 h-[1px] bg-gradient-to-r from-transparent via-[#2a2a2a] to-transparent" />
+        {/* DIVIDER */}
+        <div className="mt-8 sm:mt-14 h-[1px] bg-gradient-to-r from-transparent via-[#2a2a2a] to-transparent" />
 
-        {/* 🧾 COPYRIGHT */}
-        <div className="text-center mt-6">
-          <p className="text-[#444] text-[10px] sm:text-xs">
-            © 2026 The Sharp Edge. All rights reserved.
-          </p>
-        </div>
+        {/* COPYRIGHT */}
+        <p className="text-center mt-4 sm:mt-6 text-[#444] text-[9px] sm:text-xs">
+          © 2026 The Sharp Edge
+        </p>
 
       </div>
     </footer>
   )
 }
 
-/* 🔥 REUSABLE COLUMN */
 function FooterCol({ title, lines }: any) {
   return (
     <div>
-      <h4 className="text-[10px] tracking-[3px] uppercase text-[#c9a84c] mb-3">
+      <h4 className="text-[8px] sm:text-[10px] tracking-[2px] sm:tracking-[3px] uppercase text-[#c9a84c] mb-2 sm:mb-3">
         {title}
       </h4>
 
-      <div className="space-y-1">
+      <div className="space-y-0.5 sm:space-y-1">
         {lines.map((l: string) => (
           <p
             key={l}
             className="
               text-[#888] 
-              text-xs sm:text-sm 
-              leading-relaxed 
+              text-[9px] sm:text-sm 
+              leading-tight sm:leading-relaxed 
               hover:text-white 
               transition
             "
