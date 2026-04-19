@@ -9,7 +9,7 @@ export default function OffersSection() {
       id="offers"
       className="py-6 sm:py-6 px-2 bg-[#141414] flex justify-center"
     >
-      <div className="w-full max-w-[420px] sm:max-w-6xl">
+      <div className="w-full max-w-[720px] sm:max-w-6xl">
 
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12">
