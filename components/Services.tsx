@@ -16,7 +16,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="py-16 sm:py-20 px-4 bg-[#0d0d0d]"
+      className="py-8 sm:py-20 px-4 bg-[#0d0d0d]"
     >
       <div className="max-w-6xl mx-auto">
 
@@ -36,7 +36,7 @@ export default function ServicesSection() {
         {/* Masonry */}
         <div
           ref={containerRef}
-          className="columns-2 sm:columns-3 gap-4 space-y-4"
+          className="columns-2 sm:columns-3 gap-2 space-y-2"
         >
           {SERVICES.map((s, i) => (
             <ServiceCard key={i} s={s} i={i} scroll={scrollYProgress} />

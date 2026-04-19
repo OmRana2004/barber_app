@@ -7,7 +7,7 @@ export default function OffersSection() {
   return (
     <section
       id="offers"
-      className="py-16 sm:py-20 px-4 bg-[#141414] flex justify-center"
+      className="py-6 sm:py-6 px-2 bg-[#141414] flex justify-center"
     >
       <div className="w-full max-w-[420px] sm:max-w-6xl">
 

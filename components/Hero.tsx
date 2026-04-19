@@ -46,7 +46,7 @@ export default function HeroSection() {
 
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }}
-          className="flex gap-8 md:gap-16 mt-14 flex-wrap justify-center">
+          className="flex gap-8 md:gap-16 mt-10 flex-wrap justify-center">
           {[['5000+', 'Clients Served'], ['8+', 'Years Experience'], ['4.9★', 'Avg Rating']].map(([n, l]) => (
             <div key={l} className="text-center">
               <div className="text-2xl md:text-3xl font-bold text-[#c9a84c]">{n}</div>

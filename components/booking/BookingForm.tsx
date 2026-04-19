@@ -25,7 +25,7 @@ export default function BookingSection() {
   }
 
   return (
-    <section id="book-now" className="py-16 sm:py-20 px-4 bg-[#141414]">
+    <section id="book-now" className="py-8 sm:py-10 px-4 bg-[#141414]">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14 items-start">
 
         {/* LEFT */}

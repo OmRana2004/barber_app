@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-[#070707] border-t border-[#2a2a2a] px-3 sm:px-4 py-10 sm:py-16">
+    <footer className="bg-[#070707] border-t border-[#2a2a2a] px-3 sm:px-4 py-6 sm:py-10">
 
       <div className="max-w-6xl mx-auto">
 
@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="
           grid 
           grid-cols-3 
-          gap-3 sm:gap-12 
+          gap-3 sm:gap-10
           text-center
         ">
 
@@ -58,7 +58,7 @@ export default function Footer() {
         <div className="mt-8 sm:mt-14 h-[1px] bg-gradient-to-r from-transparent via-[#2a2a2a] to-transparent" />
 
         {/* COPYRIGHT */}
-        <p className="text-center mt-4 sm:mt-6 text-[#444] text-[9px] sm:text-xs">
+        <p className="text-center mt-2 sm:mt-6 text-[#444] text-[9px] sm:text-xs">
           © 2026 The Sharp Edge
         </p>
 
